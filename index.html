@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content='Project page for our paper "DAVIDE: Depth-Aware Video Deblurring".'>
+  <meta name="keywords" content="blur formation, image compositing blur, neural representa-
+  tions, deblurring">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DAVIDE: Depth-Aware Video Deblurring</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/diaphragm.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"></script>
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+              // customised options
+              // • auto-render specific keys, e.g.:
+              delimiters: [
+                  {left: "$$", right: "$$", display: true},
+                  {left: "\\[", right: "\\]", display: true},
+                  {left: "$", right: "$", display: false},
+                  {left: "\\(", right: "\\)", display: false}
+              ],
+              // • rendering keys, e.g.:
+              throwOnError : false
+            });
+        });
+    </script>
+  <script
+  defer
+  src="https://unpkg.com/img-comparison-slider@7/dist/index.js"
+  ></script>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/img-comparison-slider@7/dist/styles.css"
+  />
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">DAVIDE: Depth-Aware Video Deblurring</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://germanftv.github.io/">German F. Torres</a><sup>1</sup>, </span>
+              <span class="author-block">
+                Jussi Kalliola<sup>1</sup>, </span>
+              <span class="author-block">
+                <a href="https://blade6570.github.io/soumyatripathy/">Soumya Tripathy</a><sup>2</sup>, </span>
+              <span class="author-block">
+                Erman Acar<sup>2</sup>, and </span>
+            <span class="author-block">
+              <a href="https://webpages.tuni.fi/vision/public_pages/JoniKamarainen/index.html">Joni Kämäräinen</a><sup>1</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Tampere University&emsp;</span>
+            <span class="author-block"><sup>2</sup>Huawei Technologies</span>
+          </div>
+          <!-- <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>2</sup>Huawei Technologies</span>
+          </div> -->
+
+          <!-- <div class="is-size-5 publication-authors">
+            <span class="author-block"><b> SCIA 2023 </b></span>
+          </div> -->
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <!-- <span class="link-block">
+                <a href="https://link.springer.com/chapter/10.1007/978-3-031-31435-3_19"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+              <!-- <span class="link-block">
+                <a href="https://arxiv.org/abs/2303.09334"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (Coming soon)</span>
+                  </a>
+              </span>
+              <!-- Dataset Links. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Dataset (Coming soon)</span>
+                  </a>
+                </span>
+              <!-- <span class="link-block">
+                <a href="https://zenodo.org/record/7745713#.ZCUlvo5BxhE"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>RealCMB</span>
+                  </a>
+              </span> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Video deblurring aims at recovering sharp details from a sequence of blurry frames. 
+            Despite the proliferation of depth sensors in mobile phones and the potential of depth information to guide deblurring, depth-aware deblurring has received only limited attention. 
+            In this work, we introduce the 'Depth-Aware VIdeo DEblurring' (DAVIDE) dataset to study the impact of depth information in video deblurring. 
+            The dataset comprises synchronized blurred, sharp, and depth videos. 
+            We investigate how the depth information should be injected into the existing deep RGB video deblurring models, and propose a strong baseline for depth-aware video deblurring. 
+            Our findings reveal the significance of depth information in video deblurring and provide insights into the use cases where depth cues are beneficial. 
+            In addition, our results demonstrate that while the depth improves deblurring performance, this effect diminishes when models are provided with a longer temporal context.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Video samples</h2>
+        
+        <!-- Paper video. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <!-- <h2 class="title is-3">Video</h2> -->
+            <div class="publication-video">
+              <iframe src="https://youtu.be/l4LCy6LROL0"
+                      frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+
+
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Visual results</h2>
+        <div class="content has-text-justified">
+          <p>
+            For comparison, we show results for the proposed ICB model and the convolutional Pixel-Wise Blur (PWB) model. Images in hot colormap represent the error between the ground truth and the estimation.
+          </p>
+        </div>
+
+
+        <h3 class="title is-4">Blur formation</h3>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+<!-- <section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-Macro_LoftOffice_p09">
+          <div class="row">
+            <div class="myslicer-column2">
+              <img-comparison-slider>
+                <img slot="first" src="./static/images/results/blur/PWB/output/Macro_LoftOffice-Cabinet_p09_t09_Txy.png" width="100%" />
+                <img slot="second" src="./static/images/results/blur/PWB/error/Macro_LoftOffice-Cabinet_p09_t09_Txy.png" width="100%" />
+              </img-comparison-slider>
+
+            </div>
+            <div class="myslicer-column2">
+              <img-comparison-slider>
+                <img slot="first" src="./static/images/results/blur/ICB/output/Macro_LoftOffice-Cabinet_p09_t09_Txy.png" width="100%" />
+                <img slot="second" src="./static/images/results/blur/ICB/error/Macro_LoftOffice-Cabinet_p09_t09_Txy.png" width="100%" />
+              </img-comparison-slider>
+
+            </div>
+          </div> 
+
+        </div>
+        <div class="item item-ModernStudio_p08">
+          <div class="row">
+            <div class="myslicer-column2">
+              <img-comparison-slider>
+                <img slot="first" src="./static/images/results/blur/PWB/output/Macro_ModernStudio_p08_t27_Txy.png" width="100%" />
+                <img slot="second" src="./static/images/results/blur/PWB/error/Macro_ModernStudio_p08_t27_Txy.png" width="100%" />
+              </img-comparison-slider>
+
+            </div>
+            <div class="myslicer-column2">
+              <img-comparison-slider>
+                <img slot="first" src="./static/images/results/blur/ICB/output/Macro_ModernStudio_p08_t27_Txy.png" width="100%" />
+                <img slot="second" src="./static/images/results/blur/ICB/error/Macro_ModernStudio_p08_t27_Txy.png" width="100%" />
+              </img-comparison-slider>
+
+            </div>
+          </div> 
+        </div>
+        <div class="item item-Trucking_ModularCity_p03_t09_Txy">
+          <div class="row">
+            <div class="myslicer-column2">
+              <img-comparison-slider>
+                <img slot="first" src="./static/images/results/blur/PWB/output/Trucking_ModularCity_p03_t09_Txy.png" width="100%" />
+                <img slot="second" src="./static/images/results/blur/PWB/error/Trucking_ModularCity_p03_t09_Txy.png" width="100%" />
+              </img-comparison-slider>
+
+            </div>
+            <div class="myslicer-column2">
+              <img-comparison-slider>
+                <img slot="first" src="./static/images/results/blur/ICB/output/Trucking_ModularCity_p03_t09_Txy.png" width="100%" />
+                <img slot="second" src="./static/images/results/blur/ICB/error/Trucking_ModularCity_p03_t09_Txy.png" width="100%" />
+              </img-comparison-slider>
+
+            </div>
+
+          </div> 
+        </div>
+        <div class="item item-Trucking_VikingVillage_p07_t07_Txy">
+          <div class="row">
+            <div class="myslicer-column2">
+              <img-comparison-slider>
+                <img slot="first" src="./static/images/results/blur/PWB/output/Trucking_VikingVillage_p07_t07_Txy.png" width="100%" />
+                <img slot="second" src="./static/images/results/blur/PWB/error/Trucking_VikingVillage_p07_t07_Txy.png" width="100%" />
+              </img-comparison-slider>
+            </div>
+            <div class="myslicer-column2">
+              <img-comparison-slider>
+                <img slot="first" src="./static/images/results/blur/ICB/output/Trucking_VikingVillage_p07_t07_Txy.png" width="100%" />
+                <img slot="second" src="./static/images/results/blur/ICB/error/Trucking_VikingVillage_p07_t07_Txy.png" width="100%" />
+              </img-comparison-slider>
+            </div>
+          </div> 
+        </div>  
+        <div class="item item-Standard_ModernStudio_p11_t10_6d">
+          <div class="row">
+            <div class="myslicer-column2">
+              <img-comparison-slider>
+                <img slot="first" src="./static/images/results/blur/PWB/output/Standard_ModernStudio_p11_t10_6d.png" width="100%" />
+                <img slot="second" src="./static/images/results/blur/PWB/error/Standard_ModernStudio_p11_t10_6d.png" width="100%" />
+              </img-comparison-slider>
+            </div>
+            <div class="myslicer-column2">
+              <img-comparison-slider>
+                <img slot="first" src="./static/images/results/blur/ICB/output/Standard_ModernStudio_p11_t10_6d.png" width="100%" />
+                <img slot="second" src="./static/images/results/blur/ICB/error/Standard_ModernStudio_p11_t10_6d.png" width="100%" />
+              </img-comparison-slider>
+
+            </div>
+
+          </div> 
+        </div>  
+      </div>
+      <div class="row">
+        <div class="myslicer-column2"><span>PWB (baseline)</span></div>
+        <div class="myslicer-column2"><span>ICB (Ours)</span></div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- <section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+
+        <div class="column is-full-width">
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item item-cable01">
+              <div class="row">
+                <div class="myslicer-column3">
+                  <img-comparison-slider>
+                    <img slot="first" src="./static/images/results/blur/PWB/output/cable01.png" width="100%" />
+                    <img slot="second" src="./static/images/results/blur/PWB/error/cable01.png" width="100%" />
+                  </img-comparison-slider>
+                </div>
+                <div class="myslicer-column3">
+                  <img-comparison-slider>
+                    <img slot="first" src="./static/images/results/blur/ICB/output/cable01.png" width="100%" />
+                    <img slot="second" src="./static/images/results/blur/ICB/error/cable01.png" width="100%" />
+                  </img-comparison-slider>
+                </div>
+                <div class="myslicer-column3">
+                  <img-comparison-slider>
+                    <img slot="first" src="./static/images/results/blur/PWB/output/teapot01.png" width="100%" />
+                    <img slot="second" src="./static/images/results/blur/PWB/error/teapot01.png" width="100%" />
+                  </img-comparison-slider>
+                </div>
+                <div class="myslicer-column3">
+                  <img-comparison-slider>
+                    <img slot="first" src="./static/images/results/blur/ICB/output/teapot01.png" width="100%" />
+                    <img slot="second" src="./static/images/results/blur/ICB/error/teapot01.png" width="100%" />
+                  </img-comparison-slider>
+                </div>
+              </div> 
+            </div>
+            <div class="item item-flower01">
+              <div class="row">
+                <div class="myslicer-column3">
+                  <img-comparison-slider>
+                    <img slot="first" src="./static/images/results/blur/PWB/output/flower01.png" width="100%" />
+                    <img slot="second" src="./static/images/results/blur/PWB/error/flower01.png" width="100%" />
+                  </img-comparison-slider>
+                </div>
+                <div class="myslicer-column3">
+                  <img-comparison-slider>
+                    <img slot="first" src="./static/images/results/blur/ICB/output/flower01.png" width="100%" />
+                    <img slot="second" src="./static/images/results/blur/ICB/error/flower01.png" width="100%" />
+                  </img-comparison-slider>
+                </div>
+                <div class="myslicer-column3">
+                  <img-comparison-slider>
+                    <img slot="first" src="./static/images/results/blur/PWB/output/reindeer01.png" width="100%" />
+                    <img slot="second" src="./static/images/results/blur/PWB/error/reindeer01.png" width="100%" />
+                  </img-comparison-slider>
+                </div>
+                <div class="myslicer-column3">
+                  <img-comparison-slider>
+                    <img slot="first" src="./static/images/results/blur/ICB/output/reindeer01.png" width="100%" />
+                    <img slot="second" src="./static/images/results/blur/ICB/error/reindeer01.png" width="100%" />
+                  </img-comparison-slider>
+                </div>
+              </div> 
+            </div>
+            <div class="item item-plant01">
+              <div class="row">
+                <div class="myslicer-column3">
+                  <img-comparison-slider>
+                    <img slot="first" src="./static/images/results/blur/PWB/output/plant01.png" width="100%" />
+                    <img slot="second" src="./static/images/results/blur/PWB/error/plant01.png" width="100%" />
+                  </img-comparison-slider>
+                </div>
+                <div class="myslicer-column3">
+                  <img-comparison-slider>
+                    <img slot="first" src="./static/images/results/blur/ICB/output/plant01.png" width="100%" />
+                    <img slot="second" src="./static/images/results/blur/ICB/error/plant01.png" width="100%" />
+                  </img-comparison-slider>
+                </div>
+                <div class="myslicer-column3">
+                  <img-comparison-slider>
+                    <img slot="first" src="./static/images/results/blur/PWB/output/camera01.png" width="100%" />
+                    <img slot="second" src="./static/images/results/blur/PWB/error/camera01.png" width="100%" />
+                  </img-comparison-slider>
+                </div>
+                <div class="myslicer-column3">
+                  <img-comparison-slider>
+                    <img slot="first" src="./static/images/results/blur/ICB/output/camera01.png" width="100%" />
+                    <img slot="second" src="./static/images/results/blur/ICB/error/camera01.png" width="100%" />
+                  </img-comparison-slider>
+                </div>
+              </div> 
+            </div>  
+          </div>
+          <div class="row">
+            <div class="myslicer-column3"><span>PWB (baseline)</span></div>
+            <div class="myslicer-column3"><span>ICB (Ours)</span></div>
+            <div class="myslicer-column3"><span>PWB (baseline)</span></div>
+            <div class="myslicer-column3"><span>ICB (Ours)</span></div>
+          </div>
+        </div>
+
+    </div>
+  </div>
+</section> -->
+
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+
+        <h3 class="title is-4">Sharp neural representations from blur</h3>
+        <div class="content has-text-justified">
+          <p>
+            We can learn a sharp neural representation using only the blurred input by coupling a coordinate-based neural network with a blur formation model (PWB or ICB).
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- <section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-Macro_ModernStudio_p05_t09_Txy">
+          <div class="row">
+            <div class="myslicer-column2">
+              <img-comparison-slider>
+                <img slot="first" src="./static/images/results/deblur/PWB/output/Macro_ModernStudio_p05_t09_Txy.png" width="100%" />
+                <img slot="second" src="./static/images/results/deblur/PWB/error/Macro_ModernStudio_p05_t09_Txy.png" width="100%" />
+              </img-comparison-slider>
+
+            </div>
+            <div class="myslicer-column2">
+              <img-comparison-slider>
+                <img slot="first" src="./static/images/results/deblur/ICB/output/Macro_ModernStudio_p05_t09_Txy.png" width="100%" />
+                <img slot="second" src="./static/images/results/deblur/ICB/error/Macro_ModernStudio_p05_t09_Txy.png" width="100%" />
+              </img-comparison-slider>
+
+            </div>
+          </div> 
+        </div>
+        <div class="item item-Macro_LoftOffice-Cabinet_p10_t23_TxyRxy">
+          <div class="row">
+            <div class="myslicer-column2">
+              <img-comparison-slider>
+                <img slot="first" src="./static/images/results/deblur/PWB/output/Macro_LoftOffice-Cabinet_p10_t23_TxyRxy.png" width="100%" />
+                <img slot="second" src="./static/images/results/deblur/PWB/error/Macro_LoftOffice-Cabinet_p10_t23_TxyRxy.png" width="100%" />
+              </img-comparison-slider>
+
+            </div>
+            <div class="myslicer-column2">
+              <img-comparison-slider>
+                <img slot="first" src="./static/images/results/deblur/ICB/output/Macro_LoftOffice-Cabinet_p10_t23_TxyRxy.png" width="100%" />
+                <img slot="second" src="./static/images/results/deblur/ICB/error/Macro_LoftOffice-Cabinet_p10_t23_TxyRxy.png" width="100%" />
+              </img-comparison-slider>
+
+            </div>
+          </div> 
+
+        </div>
+        <div class="item item-Trucking_ModularCity_p07_t37_Txy">
+          <div class="row">
+            <div class="myslicer-column2">
+              <img-comparison-slider>
+                <img slot="first" src="./static/images/results/deblur/PWB/output/Trucking_ModularCity_p07_t37_Txy.png" width="100%" />
+                <img slot="second" src="./static/images/results/deblur/PWB/error/Trucking_ModularCity_p07_t37_Txy.png" width="100%" />
+              </img-comparison-slider>
+
+            </div>
+            <div class="myslicer-column2">
+              <img-comparison-slider>
+                <img slot="first" src="./static/images/results/deblur/ICB/output/Trucking_ModularCity_p07_t37_Txy.png" width="100%" />
+                <img slot="second" src="./static/images/results/deblur/ICB/error/Trucking_ModularCity_p07_t37_Txy.png" width="100%" />
+              </img-comparison-slider>
+
+            </div>
+
+          </div> 
+        </div>
+        <div class="item item-Trucking_ModularCity_p05_t23_6d">
+          <div class="row">
+            <div class="myslicer-column2">
+              <img-comparison-slider>
+                <img slot="first" src="./static/images/results/deblur/PWB/output/Trucking_ModularCity_p05_t23_6d.png" width="100%" />
+                <img slot="second" src="./static/images/results/deblur/PWB/error/Trucking_ModularCity_p05_t23_6d.png" width="100%" />
+              </img-comparison-slider>
+            </div>
+            <div class="myslicer-column2">
+              <img-comparison-slider>
+                <img slot="first" src="./static/images/results/deblur/ICB/output/Trucking_ModularCity_p05_t23_6d.png" width="100%" />
+                <img slot="second" src="./static/images/results/deblur/ICB/error/Trucking_ModularCity_p05_t23_6d.png" width="100%" />
+              </img-comparison-slider>
+            </div>
+          </div> 
+        </div>  
+        <div class="item item-Standard_VikingVillage_p11_t23_6d">
+          <div class="row">
+            <div class="myslicer-column2">
+              <img-comparison-slider>
+                <img slot="first" src="./static/images/results/deblur/PWB/output/Standard_VikingVillage_p11_t23_6d.png" width="100%" />
+                <img slot="second" src="./static/images/results/deblur/PWB/error/Standard_VikingVillage_p11_t23_6d.png" width="100%" />
+              </img-comparison-slider>
+            </div>
+            <div class="myslicer-column2">
+              <img-comparison-slider>
+                <img slot="first" src="./static/images/results/deblur/ICB/output/Standard_VikingVillage_p11_t23_6d.png" width="100%" />
+                <img slot="second" src="./static/images/results/deblur/ICB/error/Standard_VikingVillage_p11_t23_6d.png" width="100%" />
+              </img-comparison-slider>
+
+            </div>
+
+          </div> 
+        </div>  
+      </div>
+      <div class="row">
+        <div class="myslicer-column2"><span>PWB (baseline)</span></div>
+        <div class="myslicer-column2"><span>ICB (Ours)</span></div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- <section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+
+        <div class="column is-full-width">
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item item-book02">
+              <div class="row">
+                <div class="myslicer-column3">
+                  <img-comparison-slider>
+                    <img slot="first" src="./static/images/results/deblur/PWB/output/book02.png" width="100%" />
+                    <img slot="second" src="./static/images/results/deblur/PWB/error/book02.png" width="100%" />
+                  </img-comparison-slider>
+                </div>
+                <div class="myslicer-column3">
+                  <img-comparison-slider>
+                    <img slot="first" src="./static/images/results/deblur/ICB/output/book02.png" width="100%" />
+                    <img slot="second" src="./static/images/results/deblur/ICB/error/book02.png" width="100%" />
+                  </img-comparison-slider>
+                </div>
+                <div class="myslicer-column3">
+                  <img-comparison-slider>
+                    <img slot="first" src="./static/images/results/deblur/PWB/output/heart01.png" width="100%" />
+                    <img slot="second" src="./static/images/results/deblur/PWB/error/heart01.png" width="100%" />
+                  </img-comparison-slider>
+                </div>
+                <div class="myslicer-column3">
+                  <img-comparison-slider>
+                    <img slot="first" src="./static/images/results/deblur/ICB/output/heart01.png" width="100%" />
+                    <img slot="second" src="./static/images/results/deblur/ICB/error/heart01.png" width="100%" />
+                  </img-comparison-slider>
+                </div>
+              </div> 
+            </div>
+            <div class="item item-koala01">
+              <div class="row">
+                <div class="myslicer-column3">
+                  <img-comparison-slider>
+                    <img slot="first" src="./static/images/results/deblur/PWB/output/koala01.png" width="100%" />
+                    <img slot="second" src="./static/images/results/deblur/PWB/error/koala01.png" width="100%" />
+                  </img-comparison-slider>
+                </div>
+                <div class="myslicer-column3">
+                  <img-comparison-slider>
+                    <img slot="first" src="./static/images/results/deblur/ICB/output/koala01.png" width="100%" />
+                    <img slot="second" src="./static/images/results/deblur/ICB/error/koala01.png" width="100%" />
+                  </img-comparison-slider>
+                </div>
+                <div class="myslicer-column3">
+                  <img-comparison-slider>
+                    <img slot="first" src="./static/images/results/deblur/PWB/output/robot01.png" width="100%" />
+                    <img slot="second" src="./static/images/results/deblur/PWB/error/robot01.png" width="100%" />
+                  </img-comparison-slider>
+                </div>
+                <div class="myslicer-column3">
+                  <img-comparison-slider>
+                    <img slot="first" src="./static/images/results/deblur/ICB/output/robot01.png" width="100%" />
+                    <img slot="second" src="./static/images/results/deblur/ICB/error/robot01.png" width="100%" />
+                  </img-comparison-slider>
+                </div>
+              </div> 
+            </div>
+            <div class="item item-tower02">
+              <div class="row">
+                <div class="myslicer-column3">
+                  <img-comparison-slider>
+                    <img slot="first" src="./static/images/results/deblur/PWB/output/tower02.png" width="100%" />
+                    <img slot="second" src="./static/images/results/deblur/PWB/error/tower02.png" width="100%" />
+                  </img-comparison-slider>
+                </div>
+                <div class="myslicer-column3">
+                  <img-comparison-slider>
+                    <img slot="first" src="./static/images/results/deblur/ICB/output/tower02.png" width="100%" />
+                    <img slot="second" src="./static/images/results/deblur/ICB/error/tower02.png" width="100%" />
+                  </img-comparison-slider>
+                </div>
+                <div class="myslicer-column3">
+                  <img-comparison-slider>
+                    <img slot="first" src="./static/images/results/deblur/PWB/output/armadillo01.png" width="100%" />
+                    <img slot="second" src="./static/images/results/deblur/PWB/error/armadillo01.png" width="100%" />
+                  </img-comparison-slider>
+                </div>
+                <div class="myslicer-column3">
+                  <img-comparison-slider>
+                    <img slot="first" src="./static/images/results/deblur/ICB/output/armadillo01.png" width="100%" />
+                    <img slot="second" src="./static/images/results/deblur/ICB/error/armadillo01.png" width="100%" />
+                  </img-comparison-slider>
+                </div>
+              </div> 
+            </div>  
+          </div>
+          <div class="row">
+            <div class="myslicer-column3"><span>PWB (baseline)</span></div>
+            <div class="myslicer-column3"><span>ICB (Ours)</span></div>
+            <div class="myslicer-column3"><span>PWB (baseline)</span></div>
+            <div class="myslicer-column3"><span>ICB (Ours)</span></div>
+          </div>
+        </div>
+
+    </div>
+  </div>
+</section> -->
+
+
+
+<!-- <section class="section" id="Citation">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Citation</h2>
+    <pre><code>@inproceedings{torres2023parallaxicb,
+      title={Depth-Aware Image Compositing Model for Parallax Camera Motion Blur},
+      author={Torres, German F and K{\"a}m{\"a}r{\"a}inen, Joni},
+      booktitle={Image Analysis: 23rd Scandinavian Conference, SCIA 2023, Sirkka, Finland, April 18--21, 2023, Proceedings, Part I},
+      pages={279--296},
+      year={2023},
+      organization={Springer}
+    }
+    </code></pre>
+  </div>
+</section> -->
+
+
+<footer class="footer">
+  <div class="container">
+    <!-- <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div> -->
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            <small>This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>. This webpage template is from
+            <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
+            . We sincerely thank 
+            <a href="https://keunhong.com/">Keunhong Park</a>
+            for developing and making this template available as an open-source project.
+            Icon is borrowed from <a href="https://www.flaticon.com/free-icons/photography" target="_blank" rel="noopener">Freepik - Flaticon.</a></small>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
