@@ -99,9 +99,9 @@
             <span class="author-block"><sup>2</sup>Huawei Technologies</span>
           </div> -->
 
-          <!-- <div class="is-size-5 publication-authors">
-            <span class="author-block"><b> SCIA 2023 </b></span>
-          </div> -->
+          <div class="is-size-5 publication-authors"  style="margin-top: 20px;">
+            <span class="author-block"><b> ECCV Workshop AIM 2024 </b></span>
+          </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
@@ -115,15 +115,15 @@
                   <span>Paper</span>
                 </a>
               </span> -->
-              <!-- <span class="link-block">
-                <a href="https://arxiv.org/abs/2303.09334"
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2409.01274"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
                   </span>
                   <span>arXiv</span>
                 </a>
-              </span> -->
+              </span>
               <!-- Video Link. -->
               <!-- <span class="link-block">
                 <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
@@ -198,9 +198,105 @@
 
 <section class="section">
   <div class="container is-max-desktop">
+    <div class="column is-full-width">
+      <h2 class="title is-3">Dataset</h2>
+      <div class="content has-text-justified">
+        <p>
+          The DAVIDE dataset consists of synchronized blurred, depth, and sharp videos. 
+          The dataset comprises 90 video sequences divided into 69 for training, 7 for validation, and 14 for testing.
+          The test set includes annotations of seven content attributes categorized by: 1) environment (indoor/outdoor), 
+          2) motion (camera motion/camera and object motion), and 3) scene proximity (close/mid/far).
+          These annotations aim to facilitate further analysis into scenarios where depth information could be more beneficial.
+          Here, we provide a preview of some test samples.
+        </p>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-farm03">
+          <div class="row">
+            <video controls autoplay loop>
+              <source src="static/dataset_samples/farm03.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div> 
+
+        </div>
+        <div class="item item-indoors02">
+          <div class="row">
+            <video controls autoplay loop>
+              <source src="static/dataset_samples/indoors02.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div> 
+        </div>
+        <div class="item item-play_ground05">
+          <div class="row">
+            <video controls autoplay loop>
+              <source src="static/dataset_samples/play_ground05.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+
+          </div> 
+        </div>
+        <div class="item item-robot04">
+          <div class="row">
+            <video controls autoplay loop>
+              <source src="static/dataset_samples/robot04.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div> 
+        </div>  
+        <div class="item item-toy01">
+          <div class="row">
+            <video controls autoplay loop>
+              <source src="static/dataset_samples/toy01.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div> 
+        </div>  
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Video samples</h2>
+        <h2 class="title is-3">Depth injection method</h2>
+        <div class="content has-text-justified">
+          <figure style="float: left; margin-right: 15px;">
+            <img src="static/images/depth_fusion.png" alt="Depth Fusion Method">
+            <!-- <figcaption>Depth Fusion Method</figcaption> -->
+          </figure>
+          <p>
+            We propose a depth injection method to incorporate depth information into <a href = "https://openaccess.thecvf.com/content/CVPR2023/html/Li_A_Simple_Baseline_for_Video_Restoration_With_Grouped_Spatial-Temporal_Shift_CVPR_2023_paper.html">Shift-Net</a>, 
+            an existing RGB-only video deblurring model.
+            The depth information is injected into the model at different stages of the network architecture.
+            This method includes the Grouped Spatial Shift (GSS) module and our Depth-Aware Transformer (DAT) block.
+            While the GSS expands the receptive field of depth features $F_D$ with spatial shift, our DaT more effectively produces features $\tilde{F}_I$ that capture depth cues by aggregating $F'_D$ to the RGB features $F_I$.
+            The DaT block consist of: 1) a cross-attention module ('X-Atten' block in figure) that adapts the depth-based key-value pairs with the RGB query $Q$, 
+            2) a Spatial Feature Transform (SFT) layer that modulates the RGB features $F_I$ with adapted depth features $z$, and
+            3) a gated feed-forward network ('GDFN' block in figure) that performs feature aggregation over the modulated features.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Video results</h2>
+        <div class="content has-text-justified">
+          <p>
+            We conducted a comprehensive evaluation of the role of depth in video deblurring.
+            Our findings indicate that video deblurring methods can compensate for the lack of depth
+            information by accessing longer context windows. In the case of single-image
+            deblurring, indoor, close proximity, and camera motion scenes clearly benefit from depth.
+            Here, we show some video results from our extensive evaluation.
+          </p>
         
         <!-- Paper video. -->
         <div class="columns is-centered has-text-centered">
@@ -670,20 +766,18 @@
 
 
 
-<!-- <section class="section" id="Citation">
+<section class="section" id="Citation">
   <div class="container is-max-desktop content">
     <h2 class="title">Citation</h2>
-    <pre><code>@inproceedings{torres2023parallaxicb,
-      title={Depth-Aware Image Compositing Model for Parallax Camera Motion Blur},
-      author={Torres, German F and K{\"a}m{\"a}r{\"a}inen, Joni},
-      booktitle={Image Analysis: 23rd Scandinavian Conference, SCIA 2023, Sirkka, Finland, April 18--21, 2023, Proceedings, Part I},
-      pages={279--296},
-      year={2023},
-      organization={Springer}
+    <pre><code>@article{torres2024davide,
+      title={DAVIDE: Depth-Aware Video Deblurring},
+      author={Torres, German F and Kalliola, Jussi and Tripathy, Soumya and Acar, Erman and K{\"a}m{\"a}r{\"a}inen, Joni-Kristian},
+      journal={arXiv preprint arXiv:2409.01274},
+      year={2024}
     }
     </code></pre>
   </div>
-</section> -->
+</section>
 
 
 <footer class="footer">
@@ -705,7 +799,7 @@
                                                 href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
             Commons Attribution-ShareAlike 4.0 International License</a>. This webpage template is from
             <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
-            . We sincerely thank 
+            . We thank 
             <a href="https://keunhong.com/">Keunhong Park</a>
             for developing and making this template available as an open-source project.
             Icon is borrowed from <a href="https://www.flaticon.com/free-icons/photography" target="_blank" rel="noopener">Freepik - Flaticon.</a></small>
