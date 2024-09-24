@@ -76,3 +76,15 @@ $(document).ready(function() {
     bulmaSlider.attach();
 
 })
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const videos = document.querySelectorAll('video');
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+  videos.forEach(video => {
+    if (!isMobile) {
+      video.setAttribute('autoplay', 'autoplay');
+    }
+  });
+});
