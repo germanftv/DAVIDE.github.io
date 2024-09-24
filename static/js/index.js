@@ -85,6 +85,10 @@ document.addEventListener('DOMContentLoaded', function () {
   videos.forEach(video => {
     if (!isMobile) {
       video.setAttribute('autoplay', 'autoplay');
+    } else {
+      video.removeAttribute('autoplay'); // Ensure autoplay is removed on mobile
+      video.pause(); // Ensure the video starts paused on mobile
+      video.setAttribute('muted', 'muted'); // Mute the video on mobile to allow playback
     }
   });
 });

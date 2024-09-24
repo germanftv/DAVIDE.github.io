@@ -125,6 +125,8 @@ body {
 
 .results-carousel video {
   margin: 0;
+  z-index: 10; /* Ensure it's above any overlays */
+  position: relative;
 }
 
 .myslicer-column {
