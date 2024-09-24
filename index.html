@@ -38,6 +38,16 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      bulmaCarousel.attach('#results-carousel', {
+        slidesToScroll: 1,
+        slidesToShow: 1,
+        loop: true,
+        autoplay: true,
+      });
+    });
+  </script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
@@ -212,7 +222,7 @@
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item item-farm03">
           <div class="row">
-            <video controls autoplay loop>
+            <video controls autoplay loop class="responsive-video">
               <source src="static/dataset_samples/farm03.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
@@ -221,7 +231,7 @@
         </div>
         <div class="item item-indoors02">
           <div class="row">
-            <video controls autoplay loop>
+            <video controls autoplay loop class="responsive-video">
               <source src="static/dataset_samples/indoors02.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
@@ -229,7 +239,7 @@
         </div>
         <div class="item item-play_ground05">
           <div class="row">
-            <video controls autoplay loop>
+            <video controls autoplay loop class="responsive-video">
               <source src="static/dataset_samples/play_ground05.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
@@ -238,7 +248,7 @@
         </div>
         <div class="item item-robot04">
           <div class="row">
-            <video controls autoplay loop>
+            <video controls autoplay loop class="responsive-video">
               <source src="static/dataset_samples/robot04.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
@@ -246,7 +256,7 @@
         </div>  
         <div class="item item-toy01">
           <div class="row">
-            <video controls autoplay loop>
+            <video controls autoplay loop class="responsive-video">
               <source src="static/dataset_samples/toy01.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
@@ -257,6 +267,38 @@
     </div>
   </div>
 </section>
+
+<style>
+  .responsive-video {
+    width: 100%;
+    height: auto;
+  }
+
+  .carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+
+  .carousel .item {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+
+  .carousel .item video {
+    width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 768px) {
+    .carousel .item {
+      width: 100%;
+    }
+  }
+</style>
 
 <section class="section">
   <div class="container is-max-desktop">
