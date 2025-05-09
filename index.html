@@ -158,33 +158,24 @@
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href=""
+                <a href="https://github.com/germanftv/DAVIDE-Benckmark"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
-                  <span>Code (Coming soon)</span>
+                  <span>Code</span>
                   </a>
               </span>
-              <!-- Dataset Links. -->
+              <!-- Materials Links. -->
               <span class="link-block">
-                <a href=""
+                <a href="#materials"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="far fa-images"></i>
                   </span>
-                  <span>Dataset (Coming soon)</span>
+                  <span>Dataset and Resources</span>
                   </a>
                 </span>
-              <!-- <span class="link-block">
-                <a href="https://zenodo.org/record/7745713#.ZCUlvo5BxhE"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>RealCMB</span>
-                  </a>
-              </span> -->
             </div>
 
           </div>
@@ -221,7 +212,7 @@
 <section class="section">
   <div class="container is-max-desktop">
     <div class="column is-full-width">
-      <h2 class="title is-3">Dataset</h2>
+      <h2 class="title is-3">Dataset Overview</h2>
       <div class="content has-text-justified">
         <p>
           The DAVIDE dataset consists of synchronized blurred, depth, and sharp videos. 
@@ -355,6 +346,65 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="materials">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Dataset and Resources</h2>
+        <div class="content has-text-justified">
+            <p>
+            We provide various resources from our work, including the DAVIDE dataset, original raw captures, and demo videos with model checkpoints for experimentation. 
+            To facilitate the downloading process, we have provided a download script for each resource. 
+            See the table below for resource links, scripts, and setup instructions.
+            To access these materials, please complete the <a href="https://docs.google.com/forms/d/e/1FAIpQLSeQ2w4xsoIkzJ6kNseSiHkMaj303_tXRs2v23wqF3chfSF1FQ/viewform?usp=header">request form</a>. 
+            Once submitted, you will receive an email with the required credentials.
+            </p>
+        
+        <!-- Table with resources, links, scripts and instructions-->
+        <div class="table-container">
+          <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+            <thead>
+              <tr>
+          <th>Resource</th>
+          <th>Access Link</th>
+          <th>Download Script</th>
+          <th>Instructions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+          <td>DAVIDE dataset</td>
+          <td><a href="https://davide.rd.tuni.fi/davide-dataset/">View Dataset</a></td>
+          <td><code><a href="https://github.com/germanftv/DAVIDE-Benckmark/blob/master/dataset/download_davide_dataset.sh">download_davide_dataset.sh</a></code></td>
+          <td><a href="https://github.com/germanftv/DAVIDE-Benckmark/blob/662bfb6fc0b8819bb33d86b8d0d121dae7fb3cbe/README.md?plain=1#L74">instructions</a></td>
+              </tr>
+              <tr>
+          <td>Raw captures</td>
+          <td><a href="https://davide.rd.tuni.fi/raw-captures/">View Captures</a></td>
+          <td><code><a href="https://github.com/germanftv/DAVIDE-Synthesis/blob/master/data/download_raw_captures.sh">download_raw_captures.sh</a></code></td>
+          <td><a href="https://github.com/germanftv/DAVIDE-Synthesis/blob/7ce6b1c06a0139692bd665765c2fcc023cc991b2/README.md?plain=1#L67">instructions</a></td>
+              </tr>
+              <tr>
+          <td>Demo data</td>
+          <td><a href="https://davide.rd.tuni.fi/davide-dataset/demo/">View Demo Data</a></td>
+          <td><code><a href="https://github.com/germanftv/DAVIDE-Benckmark/blob/master/dataset/download_demo_data.sh">download_demo_data.sh</a></code></td>
+          <td><a href="https://github.com/germanftv/DAVIDE-Benckmark/blob/662bfb6fc0b8819bb33d86b8d0d121dae7fb3cbe/README.md?plain=1#L67">instructions</a></td>
+              </tr>
+              <tr>
+          <td>Checkpoints</td>
+          <td><a href="https://davide.rd.tuni.fi/checkpoints/">View Checkpoints</a></td>
+          <td><code><a href="https://github.com/germanftv/DAVIDE-Benckmark/blob/master/model_zoo/download_davide_checkpoints.sh">download_davide_checkpoints.sh</a></code></td>
+          <td><a href="https://github.com/germanftv/DAVIDE-Benckmark/blob/662bfb6fc0b8819bb33d86b8d0d121dae7fb3cbe/README.md?plain=1#L67">instructions</a></td>
+              </tr>               
+            </tbody>
+          </table>
+        </div>
+
       </div>
     </div>
   </div>
